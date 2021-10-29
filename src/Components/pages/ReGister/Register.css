@@ -1,0 +1,23 @@
+.register{
+      width:100%;
+      height:750px;
+      background-color: #1783b5a6;
+}
+
+/* Make it responsive */
+@media only screen and (max-width:688px) {
+   .reg-input{
+
+      width:600px;
+      height:600px;
+     
+   }  
+}
+@media only screen and (min-width:689px) and (max-width: 991px){
+   .reg-input{
+
+      width:600px;
+      height:600px;
+   }
+   
+}

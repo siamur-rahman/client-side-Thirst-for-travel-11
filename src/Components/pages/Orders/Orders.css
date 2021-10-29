@@ -1,0 +1,20 @@
+
+
+.Order-card{
+   background-color: rgba(168, 190, 168, 0.419);
+   margin: 5px;
+   padding: 15px;
+   border-radius: 35px;
+}
+.Order-card:hover{
+   background-color: rgba(12, 90, 12, 0.194);
+   
+}
+
+.button{
+   background-color: rgba(150, 71, 15, 0.605);
+   color: white;
+   border: none;
+   border-radius: 15px;
+   padding: 5px;
+}
