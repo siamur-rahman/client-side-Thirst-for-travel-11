@@ -15,6 +15,7 @@ import Login from "./Components/pages/Login/Login";
 import PrivateRoute from "./Components/pages/PrivateRoute/PrivateRoute";
 import Register from "./Components/pages/ReGister/Register";
 import ServicesDetails from "./Components/pages/ServiceDetails/ServicesDetails";
+import AddNewServices from "./Components/pages/AddNewServices/AddNewServices";
 
 
 
@@ -37,6 +38,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/myOrder">
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/addNewService">
+            <AddNewServices></AddNewServices>
           </PrivateRoute>
           <Route exact path="/register">
             <Register></Register>

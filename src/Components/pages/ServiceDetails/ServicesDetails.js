@@ -1,40 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { faPhone, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Container, Card, Row, Col } from 'react-bootstrap';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
+
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+
 import './ServiceDetails.css';
-import { Container, Card, Row, Col } from 'react-bootstrap';
+
 
 const ServicesDetails = () => {
+
+   const { register, handleSubmit } = useForm();
+   // const onSubmit = data => console.log(data);
 
    const { id } = useParams();
    const [services, setServices] = useState([]);
    const [singleService, setSingleService] = useState({});
 
-   useEffect(() => {
-      fetch('/serviceDetails.json')
-         .then(res => res.json())
+   // useEffect(() => {
+   //    fetch('/serviceDetails.json')
+   //       .then(res => res.json())
 
-         .then(data => setServices(data))
-   }, [])
+   //       .then(data => setServices(data))
+   // }, [])
 
    useEffect(() => {
       const foundService = services.find(service =>
          service.id === id)
       setSingleService(foundService);
 
-   }, [services])
+   }, [])
+
+   const onSubmit = data => {
+      console.log(data);
+      axios.post('http://localhost:5000/services', data)
+         .then(res => { console.log(res) })
+   }
+
 
    return (
       <div className="single-service">
          <Header></Header>
          <div >
-            <Container className=" d-flex  justify-content-center ">
+            <Container className="add-service d-flex  justify-content-center ">
 
-               <Row >
+               <Row className=" d-flex flex-direction-column w-100 justify-content-center  my-5 " >
                   <Col md={6}>
                      <Card style={{ width: '18rem' }}>
                         <div className="d-flex justofy-content-center">
@@ -54,12 +69,18 @@ const ServicesDetails = () => {
                      </Card>
                   </Col>
                </Row>
-               <Row className=" d-flex  justify-content-center mx-5 px-5" >
+               {/* <Row className="   my-5  " >
                   <Col md={6}>
-                     <h2>address</h2>
-                     <h2>form</h2>
+
+                     <form onSubmit={handleSubmit(onSubmit)}>
+                        <input {...register("name", { required: true, maxLength: 20 })} placeholder="name" />
+                        <textarea {...register("description")} placeholder="description" />
+                        <input type="number" {...register("price")} placeholder="package price" />
+                        <input {...register("img")} placeholder="img url" />
+                        <input type="submit" />
+                     </form>
                   </Col>
-               </Row>
+               </Row> */}
             </Container>
          </div>
          <Footer></Footer>

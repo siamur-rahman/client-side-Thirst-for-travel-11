@@ -7,8 +7,8 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 
 
 const Service = ({ service }) => {
-    // const { id, name, description, img } = service;
-    const { id } = service;
+    const { id, name, description, img } = service;
+    // const { id } = service;
     return (
         <Container id="service" className=" p-5 service-cards">
 
@@ -16,7 +16,7 @@ const Service = ({ service }) => {
                 <Col md={5}>
                     <div>
                         <Card>
-                            <Card.Img variant="top" src="" />
+                            <Card.Img variant="top" src={img} />
                         </Card>
                     </div>
                 </Col>
@@ -24,8 +24,8 @@ const Service = ({ service }) => {
                     <Card style={{ width: '18rem' }} >
                         <Card.Body className="cart-dody">
 
-                            <Card.Title>name</Card.Title>
-                            <Card.Text>description
+                            <Card.Title>{name}</Card.Title>
+                            <Card.Text>{description}
                             </Card.Text>
                         </Card.Body>
                     </Card>

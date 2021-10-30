@@ -1,15 +1,18 @@
 
 .service-cards{
-    background-color: rgba(216, 191, 216, 0.318);
+    background-color: rgba(223, 213, 223, 0.318);
     /* margin: 5px; */
     border-radius: 15px;
+    /* background-image: url(https://i.ibb.co/23X2wcS/MF3-1122.jpg);
+    background-size: cover; */
+   
 }
 
 .service-cards:hover{
-    background-color: rgba(216, 191, 216, 0.667);
+    background-color: rgba(216, 191, 216, 0.29);
 }
 .service{
-    background-color: rgba(12, 56, 114, 0.455);
+    background-color: rgba(126, 135, 77, 0.455);
     border-radius:20px ;
  
 }
@@ -18,7 +21,7 @@
 }
 .cart-dody{
 
-background-color: rgba(70, 131, 180, 0.345);
+background-color: rgba(109, 154, 191, 0.345);
 }
 .btn-warn{
     color:black;

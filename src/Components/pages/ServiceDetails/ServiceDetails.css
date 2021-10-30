@@ -1,5 +1,5 @@
 .single-service{
-   background-color: #1783b5a6;
+   background-color: #d2ca5379;
 }
 .details{
    width:100%;
@@ -28,4 +28,26 @@
    background-color: rgba(211, 216, 191, 0.818);
    border-radius: 5px;
 
+}
+
+.add-service form{
+   display: flex;
+   flex-direction: column;
+   width: 600px;
+   justify-content:center
+}
+
+@media only screen and (max-width:688px) {
+   .add-service{
+      display: flex;
+   flex-direction: column;
+      /* display: block; */
+      width: 100%;
+         }
+   
+   .add-service form{
+    
+      width: 300px;
+         }
+   
 }
