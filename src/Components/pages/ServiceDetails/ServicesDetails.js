@@ -4,8 +4,10 @@ import { useParams } from 'react-router';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Card, Row, Col } from 'react-bootstrap';
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // import axios from 'axios';
+import useFirebase from '../../hooks/useFirebase';
+// import { Navbar } from 'react-bootstrap';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -15,8 +17,9 @@ import './ServiceDetails.css';
 
 const ServicesDetails = () => {
 
-   // const { register, handleSubmit } = useForm();
+   const { register, handleSubmit } = useForm();
    // const onSubmit = data => console.log(data);
+   const { user } = useFirebase();
 
    const { id } = useParams();
    // console.log(id);
@@ -29,11 +32,13 @@ const ServicesDetails = () => {
       fetch(url)
          .then(res => res.json())
 
-         // .then(data => console.log(data))
          .then(data => setServices(data))
    }, [id])
 
+   const onSubmit = data => {
+      console.log(data);
 
+   }
 
    return (
       <div className="single-service">
@@ -41,13 +46,27 @@ const ServicesDetails = () => {
          <h1 className="d-flex justify-content-center mt-4">Booking Place</h1>
          <div >
             <Container className="add-service d-flex  justify-content-center ">
+               <Row className="   my-5  " >
+                  <Col md={6}>
 
-               <Row className=" d-flex flex-direction-column w-100 justify-content-center  my-5 " >
+                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <input type="email" {...register("email")} value={user.email} placeholder="email" /><br />
+                        <input {...register("name")} value={user.displayName} placeholder="name" /><br />
+                        <textarea {...register("address")} placeholder="address" /><br />
+                        <input type="number" {...register("phone")} placeholder="phone" /><br />
+                        <input type="submit" />
+
+                     </form>
+                  </Col>
+               </Row>
+               <Row className=" d-flex flex-direction-column w-100 justify-content-center  mb-5 " >
                   <Col md={6}>
                      <Card style={{ width: '18rem' }}>
                         <div className="">
-                           <Card className="">
+                           <Card className="single-service">
 
+                              <Card.Title>Get this Package</Card.Title>
                               <Card.Img variant="top" src={services.img} />
                            </Card>
                         </div>
@@ -62,18 +81,7 @@ const ServicesDetails = () => {
                      </Card>
                   </Col>
                </Row>
-               {/* <Row className="   my-5  " >
-                  <Col md={6}>
 
-                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input {...register("name", { required: true, maxLength: 20 })} placeholder="name" />
-                        <textarea {...register("description")} placeholder="description" />
-                        <input type="number" {...register("price")} placeholder="package price" />
-                        <input {...register("img")} placeholder="img url" />
-                        <input type="submit" />
-                     </form>
-                  </Col>
-               </Row> */}
             </Container>
          </div>
          <Footer></Footer>

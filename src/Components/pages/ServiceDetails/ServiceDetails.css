@@ -1,5 +1,5 @@
 .single-service{
-   background-color: #d2ca5379;
+   background-color: #ddd66f46; 
 }
 .details{
    width:100%;
@@ -7,7 +7,7 @@
    background-color: #5b47848c;
 
    background-size: cover;
-   background-color: burlywood;
+  
    border-radius: 25px;
 }
 .details-btn{
@@ -42,7 +42,7 @@
    .add-service{
       display: flex;
    flex-direction: column;
-      /* display: block; */
+     
       width: 100%;
          }
    
