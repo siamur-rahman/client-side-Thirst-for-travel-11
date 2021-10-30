@@ -6,7 +6,7 @@ import useFirebase from '../../hooks/useFirebase';
 const PrivateRoute = ({ children, ...rest }) => {
    const { user, isLoading } = useFirebase();
    if (isLoading) {
-      return <Spinner animation="border" variant="danger" />
+      return <div className="d-flex mt-5 pt-5  justify-content-center align-items-center"><Spinner animation="border" variant="danger" /></div>
    }
    return (
       <Route

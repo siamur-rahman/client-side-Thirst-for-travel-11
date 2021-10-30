@@ -4,8 +4,8 @@ import { useParams } from 'react-router';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Card, Row, Col } from 'react-bootstrap';
-import { useForm } from "react-hook-form";
-import axios from 'axios';
+// import { useForm } from "react-hook-form";
+// import axios from 'axios';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -18,49 +18,42 @@ const ServicesDetails = () => {
    // const { register, handleSubmit } = useForm();
    // const onSubmit = data => console.log(data);
 
-   const { id, name } = useParams();
+   const { id } = useParams();
+   // console.log(id);
    const [services, setServices] = useState([]);
    // const [singleService, setSingleService] = useState({});
 
    useEffect(() => {
-      fetch('/http://localhost:5000/services')
+      const url = `http://localhost:5000/services/${id}`;
+      // console.log(url);
+      fetch(url)
          .then(res => res.json())
 
+         // .then(data => console.log(data))
          .then(data => setServices(data))
-   }, [])
+   }, [id])
 
-   // useEffect(() => {
-   //    const foundService = services.find(service =>
-   //       service.id === id)
-   //    setSingleService(foundService);
-
-   // }, [])
-
-   // const onSubmit = data => {
-   //    console.log(data);
-   //    axios.post('http://localhost:5000/services', data)
-   //    .then(data => setServices(data));
-   // }
 
 
    return (
       <div className="single-service">
          <Header></Header>
+         <h1 className="d-flex justify-content-center mt-4">Booking Place</h1>
          <div >
             <Container className="add-service d-flex  justify-content-center ">
-               <h2>{id}</h2>
+
                <Row className=" d-flex flex-direction-column w-100 justify-content-center  my-5 " >
                   <Col md={6}>
                      <Card style={{ width: '18rem' }}>
-                        <div className="d-flex justofy-content-center">
-                           <Card className="d-flex justofy-content-center  ">
-                              images dynamic on src
-                              <Card.Img variant="top" src="" />
+                        <div className="">
+                           <Card className="">
+
+                              <Card.Img variant="top" src={services.img} />
                            </Card>
                         </div>
                         <Card.Body className="cardss">
-                           <Card.Title>dynamic {id}</Card.Title>
-                           <Card.Text>dynamic description
+                           <Card.Title>{services.name}</Card.Title>
+                           <Card.Text>{services.description}
                            </Card.Text>
                            <Link to={`/Order`}>
                               <button className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />Delete</button>

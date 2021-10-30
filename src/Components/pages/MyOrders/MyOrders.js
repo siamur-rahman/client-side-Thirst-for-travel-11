@@ -3,11 +3,6 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './MyOrders.css';
 
-
-// import doc1 from '../../../MyOrders/doc-1.jpg';
-// import doc2 from '../../../MyOrders/doc-2.jpg'
-// import doc3 from '../../../MyOrders/doc-3.jpg'
-// import doc4 from '../../../MyOrders/doc-4.jpg'
 import Order from '../Orders/Order';
 
 

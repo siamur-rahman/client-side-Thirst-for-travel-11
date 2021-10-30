@@ -1,8 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
-// import Doc from '../../../MyOrders/doc-1.jpg';
-// import Doc1 from '../../../MyOrders/doc-2.jpg';
-// import Doc2 from '../../../MyOrders/doc-3.jpg';
+
 import './HeadrMain.css';
 
 
