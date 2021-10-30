@@ -11,17 +11,14 @@
    border-radius: 25px;
 }
 .details-btn{
-   
    background-color: rgba(0, 68, 128, 0.605);
    border: none;
-   margin: 15px;
+   text-decoration: none;
 }
 .details-btn:hover{
-   background-color: rgba(190, 86, 21, 0.886);
+   background-color: rgba(160, 66, 8, 0.886);
 }
-.details-btn u {
-   color: blue;
-}
+
 .cardss:hover{
    background-color: rgba(216, 191, 216, 0.763);
 }

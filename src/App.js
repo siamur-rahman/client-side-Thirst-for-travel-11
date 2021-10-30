@@ -36,7 +36,7 @@ function App() {
           <PrivateRoute exact path="/home/:id">
             <ServicesDetails></ServicesDetails>
           </PrivateRoute>
-          <PrivateRoute path="/myOrder">
+          <PrivateRoute path="/order">
             <MyOrders></MyOrders>
           </PrivateRoute>
           <PrivateRoute path="/addNewService">
