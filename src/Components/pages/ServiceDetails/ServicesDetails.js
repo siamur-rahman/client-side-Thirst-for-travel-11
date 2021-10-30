@@ -15,32 +15,32 @@ import './ServiceDetails.css';
 
 const ServicesDetails = () => {
 
-   const { register, handleSubmit } = useForm();
+   // const { register, handleSubmit } = useForm();
    // const onSubmit = data => console.log(data);
 
-   const { id } = useParams();
+   const { id, name } = useParams();
    const [services, setServices] = useState([]);
-   const [singleService, setSingleService] = useState({});
-
-   // useEffect(() => {
-   //    fetch('/serviceDetails.json')
-   //       .then(res => res.json())
-
-   //       .then(data => setServices(data))
-   // }, [])
+   // const [singleService, setSingleService] = useState({});
 
    useEffect(() => {
-      const foundService = services.find(service =>
-         service.id === id)
-      setSingleService(foundService);
+      fetch('/http://localhost:5000/services')
+         .then(res => res.json())
 
+         .then(data => setServices(data))
    }, [])
 
-   const onSubmit = data => {
-      console.log(data);
-      axios.post('http://localhost:5000/services', data)
-         .then(res => { console.log(res) })
-   }
+   // useEffect(() => {
+   //    const foundService = services.find(service =>
+   //       service.id === id)
+   //    setSingleService(foundService);
+
+   // }, [])
+
+   // const onSubmit = data => {
+   //    console.log(data);
+   //    axios.post('http://localhost:5000/services', data)
+   //    .then(data => setServices(data));
+   // }
 
 
    return (
@@ -48,7 +48,7 @@ const ServicesDetails = () => {
          <Header></Header>
          <div >
             <Container className="add-service d-flex  justify-content-center ">
-
+               <h2>{id}</h2>
                <Row className=" d-flex flex-direction-column w-100 justify-content-center  my-5 " >
                   <Col md={6}>
                      <Card style={{ width: '18rem' }}>
@@ -59,7 +59,7 @@ const ServicesDetails = () => {
                            </Card>
                         </div>
                         <Card.Body className="cardss">
-                           <Card.Title>dynamic name</Card.Title>
+                           <Card.Title>dynamic {id}</Card.Title>
                            <Card.Text>dynamic description
                            </Card.Text>
                            <Link to={`/Order`}>

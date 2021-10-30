@@ -7,7 +7,7 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 
 
 const Service = ({ service }) => {
-    const { id, name, description, img } = service;
+    const { _id, name, description, img } = service;
     // const { id } = service;
     return (
         <Container id="service" className=" p-5 service-cards">
@@ -31,7 +31,7 @@ const Service = ({ service }) => {
                     </Card>
                 </Col>
             </Row>
-            <Link to={`/home/${id}`}>
+            <Link to={`/home/${_id}`}>
                 <div className=" w-100 align-items-center ">
                     <button className="  btn-warn mt-3">
                         <FontAwesomeIcon icon={faShoppingCart} /> Book now </button>
