@@ -5,34 +5,28 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+
 // import axios from 'axios';
-import useFirebase from '../../hooks/useFirebase';
 // import { Navbar } from 'react-bootstrap';
 
+import useFirebase from '../../hooks/useFirebase';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-
 import './ServiceDetails.css';
 
 
 const ServicesDetails = () => {
+
+   const { register, handleSubmit } = useForm();
+   const { user } = useFirebase();
+   const { id } = useParams();
+   const [services, setServices] = useState([]);
+
    //delete
    const [deleteService, setDeleteService] = useState([]);
 
-
-
-   //old
-   const { register, handleSubmit } = useForm();
-   // const onSubmit = data => console.log(data);
-   const { user } = useFirebase();
-
-   const { id } = useParams();
-   // console.log(id);
-   const [services, setServices] = useState([]);
-   // const [singleService, setSingleService] = useState({});
-
    useEffect(() => {
-      const url = `http://localhost:5000/services/${id}`;
+      const url = `https://quiet-taiga-96181.herokuapp.com/services/${id}`;
       // console.log(url);
       fetch(url)
          .then(res => res.json())
@@ -45,10 +39,9 @@ const ServicesDetails = () => {
 
    }
 
-
    //delete
    useEffect(() => {
-      fetch(`http://localhost:5000/services/${id}`)
+      fetch(`https://quiet-taiga-96181.herokuapp.com/services/${id}`)
          .then(res => res.json())
          .then(data => setDeleteService(data));
    }, [id])
@@ -57,7 +50,7 @@ const ServicesDetails = () => {
 
       const proced = window.confirm('are you sure , you want to delete');
       if (proced) {
-         const url = `http://localhost:5000/services/${id}`;
+         const url = `https://quiet-taiga-96181.herokuapp.com/services/${id}`;
          fetch(url, {
             method: 'DELETE'
 
@@ -76,22 +69,9 @@ const ServicesDetails = () => {
 
    }
 
-
-
-
-
-
-
    return (
       <div className="single-service">
-
-
-
          <Header></Header>
-
-
-
-
          <h1 className="d-flex justify-content-center mt-4">Booking Place</h1>
          <div >
             <Container className="add-service d-flex  justify-content-center ">
@@ -126,10 +106,6 @@ const ServicesDetails = () => {
                            <Link to={`/`}>
                               <button onClick={() => handleDeleteUser(deleteService._id)} className=" details-btn btn btn-warning"><FontAwesomeIcon icon={faTrashAlt} />Delete</button>
                            </Link>
-
-
-
-
                         </Card.Body>
                      </Card>
                   </Col>

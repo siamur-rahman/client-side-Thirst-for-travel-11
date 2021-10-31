@@ -12,7 +12,7 @@ const AddNewServices = () => {
 
    const onSubmit = data => {
       console.log(data);
-      axios.post('http://localhost:5000/services', data)
+      axios.post('https://quiet-taiga-96181.herokuapp.com/services', data)
          .then(res => {
 
             if (res.insertedId) {
