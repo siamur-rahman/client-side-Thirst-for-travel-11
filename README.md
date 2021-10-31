@@ -1,4 +1,4 @@
-# Thirst For Travel
+# Thirst For Travel Client side
 
 lets go a  [travel] with (https://thirst-for-travel.web.app/).
 
