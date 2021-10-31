@@ -41,7 +41,7 @@ const ServicesDetails = () => {
 
    //delete
    useEffect(() => {
-      fetch(`https://quiet-taiga-96181.herokuapp.com/services/${id}`)
+      fetch(`https://quiet-taiga-96181.herokuapp.com/orders/${id}`)
          .then(res => res.json())
          .then(data => setDeleteService(data));
    }, [id])
@@ -50,7 +50,7 @@ const ServicesDetails = () => {
 
       const proced = window.confirm('are you sure , you want to delete');
       if (proced) {
-         const url = `https://quiet-taiga-96181.herokuapp.com/services/${id}`;
+         const url = `https://quiet-taiga-96181.herokuapp.com/orders/${id}`;
          fetch(url, {
             method: 'DELETE'
 
